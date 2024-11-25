@@ -1,3 +1,11 @@
 import { Routes } from '@angular/router';
+import { AppComponent } from './app.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { InfoPageComponent } from './info-page/info-page.component';
+import { OatuhCallbackComponent } from './oatuh-callback/oatuh-callback.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {path:"login",component:LoginPageComponent},
+    {path:"info",component:InfoPageComponent},
+    {path:"oauth",component:OatuhCallbackComponent}
+];
