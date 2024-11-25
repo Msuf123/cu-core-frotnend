@@ -1,1 +1,14 @@
-<p>info-page works!</p>
+<div *ngIf="dataThere" class="outerDiv">
+    <h2>{{(getUserData$|async)?.userName}}</h2>
+
+    <img [src]="(getUserData$|async)?.avatar_url">
+    <span>Bio: {{(getUserData$|async)?.bio}}</span>
+    <h3>User Followers are</h3>
+    <div *ngIf="followersThere" class="OuterDivOfUser">
+    <div  *ngFor="let person of follower" class="itmes">
+        <img [src]="person.avatar_url">
+       <span>{{person.login}}</span>
+    </div>
+</div>
+</div>
+<p *ngIf="!dataThere">Loading your data</p>

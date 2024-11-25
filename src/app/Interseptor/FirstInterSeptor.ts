@@ -6,20 +6,25 @@ import { Observable, of } from "rxjs";
 export function FirstIntersepto(req:HttpRequest<unknown>,next:HttpHandlerFn):Observable<HttpEvent<unknown>>{
     let router=inject(Router)
     let token=localStorage.getItem('token')
-    if(req.url.includes("/token")){
+    if(req.url.includes("?getGitFollower")){
+      console.log(req.url.split('?')[0])
       req=req.clone({
-        url:"http://localhost:3000"+req.url
-    })
-    
-  
-    return next(req) 
+        url:req.url.split('?')[0]
+      })
+     return  next(req)
+    }
+    if(req.url.includes("/token")){
+          req=req.clone({
+            url:"http://localhost:3000"+req.url
+        })
+        return next(req) 
     }
     if(!token){
       router.navigate(['login'])
       return of()
     }else{
     req=req.clone({
-        url:"http://localhost:3000"+req.url
+        url:"http://localhost:3000"+req.url+'?token='+token
     })
     
   

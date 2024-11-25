@@ -1,5 +1,5 @@
 <div>
-  <h1>Get your github info </h1>
-  <button>See Info</button>
+  
   <router-outlet></router-outlet>
+  <app-error-server *ngIf="errorOfServer$|async"></app-error-server>
 </div>

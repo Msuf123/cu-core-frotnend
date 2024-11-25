@@ -1,0 +1,19 @@
+.outerDiv{
+    width: max-content;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+}
+:host{
+  
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.582);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

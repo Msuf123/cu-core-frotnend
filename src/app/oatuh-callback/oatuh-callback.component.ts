@@ -11,7 +11,7 @@ function errorHandler(errArg:HttpErrorResponse){
 @Component({
   selector: 'app-oatuh-callback',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './oatuh-callback.component.html',
   styleUrl: './oatuh-callback.component.css'
 })
@@ -29,7 +29,7 @@ export class OatuhCallbackComponent {
       this.code=url.code
       this.state=url.state
       this.http.get("/token?code="+this.code+'&state='+this.state,{responseType:"text"}).pipe(catchError(errorHandler)).subscribe((res)=>{
-        console.log('Setting token ',res)
+        console.log('Setting token ')
         localStorage.setItem('token',res)
         this.changeRoute.navigate(['info'])
       })
